@@ -1,6 +1,6 @@
-# Grocery Help Web App
+# Grocery Helper Web App
 
-The Grocery Help Web App is a React application which provides functionality for adding, updating, fetching and deleting grocery items
+The Grocery Helper Web App is a React application which provides functionality for adding, updating, fetching and deleting grocery items
 
 
 ## Running the Program
