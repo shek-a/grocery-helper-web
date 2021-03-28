@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useCallback, useState, useEffect } from 'react';
+import { getCategories } from './api/categoryService';
+import { getAllGroceries, getGroceriesByCategory } from './api/groceryService';
+import AddGrocery from './components/addGrocery';
+import Groceries from './components/groceries';
+import Search from './components/search';
+import { SEARCH_ALL } from './Constants';
 
-function App() {
+const App = () => {
+
+  const [groceries, setGroceries] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        fetchAllCategories();
+        refreshAllGroceries();
+    }, []);
+
+  const fetchAllCategories = useCallback(() => {
+    getCategories().then(
+      response => {
+          setCategories(response.data);
+      }
+    );
+  }, []);
+
+  const fetchGroceriesByCategory = useCallback((category) => {
+    (category === SEARCH_ALL) ?
+    refreshAllGroceries() :
+      getGroceriesByCategory(category).then(
+        response => {
+            setGroceries(response.data);
+        }
+      );
+  }, []);
+
+const refreshAllGroceries = () => {
+  getAllGroceries().then(
+      response => {
+          console.log(response);
+          setGroceries(response.data);
+      }
+  );
+};
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+        <h1>Grocery Store</h1>
+        <Search categories={categories} fetchGroceriesByCategory={fetchGroceriesByCategory}/>
+        <AddGrocery categories={categories} refreshAllGroceries={refreshAllGroceries} />
+        <Groceries groceries={groceries} categories={categories} refreshAllGroceries={refreshAllGroceries} setGroceries={setGroceries} />
+    </React.Fragment>
   );
 }
 
