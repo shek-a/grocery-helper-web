@@ -8,7 +8,7 @@ The Grocery Helper Web App is a React application which provides functionality f
 ### Dependencies
 Node and Yarn must be installed locally
 
-The 'grocery helper' spring boot backend application must be running
+The 'Grocery Helper' spring boot backend application must be running
 https://github.com/shek-a/grocery-helper
 
 ### Build
