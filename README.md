@@ -1,11 +1,11 @@
 # Grocery Help Web App
 
-The Grocery Help Web App is a React application which provides functionality for adding, update, fetching and delting grocery items
+The Grocery Help Web App is a React application which provides functionality for adding, update, fetching and deleating grocery items
 
 
 ## Running the Program
 
-### Dependency
+### Dependencies
 The 'grocery helper' spring boot backend application must be running
 
 ### Build
