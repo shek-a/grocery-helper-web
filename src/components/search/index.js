@@ -4,7 +4,6 @@ import { SEARCH_ALL } from '../../Constants';
 import './index.css';
 
 const Search = props => {
-
     const [searchCategories, setSearchCategories] = useState([]);
     const { categories, fetchGroceriesByCategory } = props;
 

@@ -5,7 +5,6 @@ import { validationSchema } from '../validationSchema'
 import './index.css';
 
 const AdddGroceryModal = props => {
-
     const { setModalIsOpen, modalIsOpen, categories, createGrocery } = props;
 
     useEffect(() => {

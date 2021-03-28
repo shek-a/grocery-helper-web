@@ -4,7 +4,6 @@ import Grocery from '../grocery';
 import './index.css';
 
 const Groceries = props => {
-
     const { categories, groceries, refreshAllGroceries } = props;
     const [message, setMessage] = useState(null);
 
