@@ -5,6 +5,7 @@ import AddGrocery from './components/addGrocery';
 import Groceries from './components/groceries';
 import Search from './components/search';
 import { SEARCH_ALL } from './Constants';
+import './App.css';
 
 const App = () => {
 
@@ -37,7 +38,6 @@ const App = () => {
 const refreshAllGroceries = () => {
   getAllGroceries().then(
       response => {
-          console.log(response);
           setGroceries(response.data);
       }
   );
@@ -45,7 +45,7 @@ const refreshAllGroceries = () => {
 
   return (
     <React.Fragment>
-        <h1>Grocery Store</h1>
+        <h1 className="Title">Grocery Store</h1>
         <Search categories={categories} fetchGroceriesByCategory={fetchGroceriesByCategory}/>
         <AddGrocery categories={categories} refreshAllGroceries={refreshAllGroceries} />
         <Groceries groceries={groceries} categories={categories} refreshAllGroceries={refreshAllGroceries} setGroceries={setGroceries} />

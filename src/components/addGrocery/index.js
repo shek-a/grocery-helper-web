@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { addGrocery } from '../../api/groceryService';
-import AddGroceryModal from '../../modal/addGroceryModal'
+import AddGroceryModal from '../../modals/addGroceryModal'
+import './index.css';
 
 const AddGrocery = props => {
     const { categories, refreshAllGroceries } = props
@@ -22,8 +23,8 @@ const AddGrocery = props => {
 
     return (
         <div>
-        <button onClick={() => setModalIsOpen(true)}>Add Grocery</button>
-        {message && <div>{message}</div>}
+        <button className="AddGrocery" onClick={() => setModalIsOpen(true)}>Add Grocery</button>
+        {message && <div className="AddMessage">{message}</div>}
             <AddGroceryModal
                 modalIsOpen={modalIsOpen}
                 setModalIsOpen={setModalIsOpen}

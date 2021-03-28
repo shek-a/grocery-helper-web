@@ -1,0 +1,21 @@
+.Groceries {
+    margin-left: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.TableHeading {
+    padding: 12px;
+    text-align: center;
+}
+
+.Message {
+    margin-bottom: 5px;
+}
+
+.NoGroceries {
+    font-weight: bold;
+}

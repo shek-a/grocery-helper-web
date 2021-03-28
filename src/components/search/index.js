@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import { SEARCH_ALL } from '../../Constants';
+import './index.css';
 
 const Search = props => {
 
@@ -36,9 +37,9 @@ const Search = props => {
             >
             {
                 formik => (
-                    <Form>
-                        <div>
-                            <label htmlFor='category'>Search By Category</label>
+                    <Form className="SearchForm">
+                        <div className="SearchMenu">
+                            <label htmlFor='category' className="CategoryLabel">Search By Category</label>
                             <Field 
                                 as='select' 
                                 id='category' 
@@ -49,7 +50,7 @@ const Search = props => {
                             }
                             </Field>
                         </div>  
-                        <button type='submit'>Search</button>    
+                        <button className="SearchButton" type='submit'>Search</button>    
                     </Form>
                 )
             }

@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { deleteGroceryById, updateGroceryById } from '../../api/groceryService';
 import Grocery from '../grocery';
+import './index.css';
 
 const Groceries = props => {
 
@@ -34,15 +35,15 @@ const Groceries = props => {
     }, [])
 
     return (
-        <React.Fragment>
-            {message && <div>{message}</div>}
+        <div className="Groceries">
+            {message && <div className="Message">{message}</div>}
             {groceries.length === 0 ?
-                <p>No grocery items found</p> :
+                <p className="NoGroceries">No grocery items found</p> :
                     <table className="table">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Category</th>
+                                <th className="TableHeading">Name</th>
+                                <th className="TableHeading">Category</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,7 +55,7 @@ const Groceries = props => {
                         </tbody>
                     </table>
             }
-        </React.Fragment>
+        </div>
     );
     
 }

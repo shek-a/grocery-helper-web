@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import Modal from 'react-modal'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup';
+import { validationSchema } from '../validationSchema'
+import './index.css';
 
 const UpdateGroceryModal = props => {
 
@@ -20,10 +21,6 @@ const UpdateGroceryModal = props => {
         name,
         category
     };
-
-    const validationSchema = Yup.object({
-        name: Yup.string().required('Grocery name is required')
-    })
 
     const mapCategories = 
         categories.map(cat => {
@@ -48,7 +45,7 @@ const UpdateGroceryModal = props => {
             isOpen={modalIsOpen} 
             onRequestClose={() => setModalIsOpen(false)}
         >
-        <h2>Add Grocery</h2>
+        <h2 className="Title">Update Grocery</h2>
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -57,18 +54,20 @@ const UpdateGroceryModal = props => {
         {
             formik => (
                 <Form>
-                    <div>
-                        <label htmlFor='name'>Name</label>
+                    <div className="Component">
+                        <label className="Label" htmlFor='name'>Name</label>
                         <Field 
+                            className="Field"
                             type='text' 
                             id='name' 
                             name='name' 
                         />
                         <ErrorMessage name='name'/>
                     </div>   
-                    <div>
-                        <label htmlFor='category'>Category</label>
+                    <div className="Component">
+                        <label className="Label" htmlFor='category'>Category</label>
                         <Field 
+                            className="Field"
                             as='select' 
                             id='category' 
                             name='category' 
@@ -78,8 +77,10 @@ const UpdateGroceryModal = props => {
                         }
                         </Field>
                     </div>  
-                    <button disabled={!formik.isValid} type='submit'>Update</button>    
-                    <button onClick={() => setModalIsOpen(false)}>Close</button>
+                    <div className="Component">
+                        <button className="Button" disabled={!formik.isValid} type='submit'>Update</button>    
+                        <button  className="Button" onClick={() => setModalIsOpen(false)}>Close</button>
+                    </div>
                 </Form>
             )
         }

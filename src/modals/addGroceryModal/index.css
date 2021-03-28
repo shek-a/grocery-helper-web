@@ -1,0 +1,23 @@
+.Title {
+    margin: 20px;
+}
+
+.Component {
+    margin: 20px;
+}
+
+.Field {
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.Label {
+    padding: 5px;
+    font-weight: bold;
+}
+
+.Button {
+    padding: 5px;
+    margin: 5px;
+}

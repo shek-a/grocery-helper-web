@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import UpdateGroceryModal from '../../modal/updateGroceryModal'
+import UpdateGroceryModal from '../../modals/updateGroceryModal'
+import './index.css';
 
 const Grocery = props => {
     const { categories, grocery, deleteGrocery, updateGrocery } = props
@@ -9,10 +10,10 @@ const Grocery = props => {
     return (
         <React.Fragment>
             <tr key={id}>
-                <td>{name}</td>
-                <td>{category}</td>
-                <td><button onClick={() => setModalIsOpen(true)}>Update</button></td>
-                <td><button onClick={() => deleteGrocery(id, name)}>Delete</button></td>
+                <td className="TableRow">{name}</td>
+                <td className="TableRow">{category}</td>
+                <td className="TableRow"><button onClick={() => setModalIsOpen(true)}>Update</button></td>
+                <td className="TableRow"><button onClick={() => deleteGrocery(id, name)}>Delete</button></td>
             </tr>
             <UpdateGroceryModal
                 modalIsOpen={modalIsOpen}

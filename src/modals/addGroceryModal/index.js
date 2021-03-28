@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import Modal from 'react-modal';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import { validationSchema } from '../validationSchema'
+import './index.css';
 
 const AdddGroceryModal = props => {
 
@@ -20,10 +21,6 @@ const AdddGroceryModal = props => {
         category: categories[0]
     };
 
-    const validationSchema = Yup.object({
-        name: Yup.string().required('Grocery name is required')
-    })
-
     const mapCategories = 
         categories.map(cat => {
             return(
@@ -38,7 +35,7 @@ const AdddGroceryModal = props => {
             isOpen={modalIsOpen} 
             onRequestClose={() => setModalIsOpen(false)}
         >
-        <h2>Add Grocery</h2>
+        <h2 className="Title">Add Grocery</h2>
         <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -47,18 +44,20 @@ const AdddGroceryModal = props => {
         {
             formik => (
                 <Form>
-                    <div>
-                        <label htmlFor='name'>Name</label>
+                    <div className="Component">
+                        <label className="Label" htmlFor='name'>Name</label>
                         <Field 
+                            className="Field"
                             type='text' 
                             id='name' 
                             name='name' 
                         />
                         <ErrorMessage name='name'/>
                     </div>   
-                    <div>
-                        <label htmlFor='category'>Category</label>
+                    <div className="Component">
+                        <label className="Label" htmlFor='category'>Category</label>
                         <Field 
+                            className="Field"
                             as='select' 
                             id='category' 
                             name='category' 
@@ -67,9 +66,11 @@ const AdddGroceryModal = props => {
                             mapCategories
                         }
                         </Field>
+                    </div>
+                    <div className="Component">
+                        <button className="Button" disabled={!formik.isValid} type='submit'>Add</button>    
+                        <button className="Button" onClick={() => setModalIsOpen(false)}>Close</button>
                     </div>  
-                    <button disabled={!formik.isValid} type='submit'>Add</button>    
-                    <button onClick={() => setModalIsOpen(false)}>Close</button>
                 </Form>
             )
         }
