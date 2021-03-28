@@ -16,6 +16,5 @@ describe('add grocery component', () => {
 
         shallowWrapper = getWrapper(props);
         expect(shallowWrapper).toMatchSnapshot();
-
     });
 })
